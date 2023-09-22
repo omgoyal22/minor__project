@@ -1,5 +1,5 @@
 import express from 'express';
-import { Book } from '../models/bookModel.js';
+import { Bike } from '../models/bikeModel.js';
 
 const router = express.Router();
 
@@ -21,9 +21,9 @@ router.post('/', async (request, response) => {
       publishYear: request.body.publishYear,
     };
 
-    const book = await Book.create(newBook);
+    const bike = await Bike.create(newBike);
 
-    return response.status(201).send(book);
+    return response.status(201).send(bike);
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
@@ -33,11 +33,11 @@ router.post('/', async (request, response) => {
 // Route for Get All Books from database
 router.get('/', async (request, response) => {
   try {
-    const books = await Book.find({});
+    const bikes = await Bike.find({});
 
     return response.status(200).json({
-      count: books.length,
-      data: books,
+      count: bikes.length,
+      data: bikes,
     });
   } catch (error) {
     console.log(error.message);
@@ -50,16 +50,16 @@ router.get('/:id', async (request, response) => {
   try {
     const { id } = request.params;
 
-    const book = await Book.findById(id);
+    const bike = await Bike.findById(id);
 
-    return response.status(200).json(book);
+    return response.status(200).json(bike);
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
   }
 });
 
-// Route for Update a Book
+// Route for Update a bike
 router.put('/:id', async (request, response) => {
   try {
     if (
@@ -74,20 +74,20 @@ router.put('/:id', async (request, response) => {
 
     const { id } = request.params;
 
-    const result = await Book.findByIdAndUpdate(id, request.body);
+    const result = await Bike.findByIdAndUpdate(id, request.body);
 
     if (!result) {
-      return response.status(404).json({ message: 'Book not found' });
+      return response.status(404).json({ message: 'Bike not found' });
     }
 
-    return response.status(200).send({ message: 'Book updated successfully' });
+    return response.status(200).send({ message: 'Bike updated successfully' });
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
   }
 });
 
-// Route for Delete a book
+// Route for Delete a bike
 router.delete('/:id', async (request, response) => {
   try {
     const { id } = request.params;
@@ -95,10 +95,10 @@ router.delete('/:id', async (request, response) => {
     const result = await Book.findByIdAndDelete(id);
 
     if (!result) {
-      return response.status(404).json({ message: 'Book not found' });
+      return response.status(404).json({ message: 'Bike not found' });
     }
 
-    return response.status(200).send({ message: 'Book deleted successfully' });
+    return response.status(200).send({ message: 'Bike deleted successfully' });
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
