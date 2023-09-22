@@ -1,5 +1,4 @@
 import React from "react";
-
 import HeroSlider from "../components/UI/HeroSlider";
 import Helmet from "../components/Helmet/Helmet";
 
@@ -9,7 +8,7 @@ import AboutSection from "../components/UI/AboutSection";
 import ServicesList from "../components/UI/ServicesList";
 import carData from "../assets/data/carData";
 import CarItem from "../components/UI/CarItem";
-import BecomeDriverSection from "../components/UI/BecomeDriverSection";
+//import BecomeDriverSection from "../components/UI/BecomeDriverSection";
 import Testimonial from "../components/UI/Testimonial";
 
 import BlogList from "../components/UI/BlogList";
@@ -26,7 +25,7 @@ const Home = () => {
             <Row className="form__row">
               <Col lg="4" md="4">
                 <div className="find__cars-left">
-                  <h2>Find your best car here</h2>
+                  <h2>Find your best bike here</h2>
                 </div>
               </Col>
 
@@ -68,7 +67,7 @@ const Home = () => {
         </Container>
       </section>
       {/* =========== become a driver section ============ */}
-      <BecomeDriverSection />
+     
 
       {/* =========== testimonial section =========== */}
       <section>
